@@ -36,8 +36,7 @@
     <a class="btn ghost" href="#projets">Explorer mes projets</a>
     <a class="btn ghost" href="#emitech">Découvrir EMITECH</a>
   </div>
-  <!-- VIDÉO : remplacez le contenu de <figure> par <video controls poster="assets/img/poster.jpg" src="assets/video/presentation.mp4"></video> ou un <iframe> YouTube -->
-  <figure class="media"><span>Vidéo de présentation<br><small class="todo">À compléter</small></span></figure>
+  <div data-v="presentation"></div>
 </div></section>
 
 <!-- À PROPOS -->
@@ -45,8 +44,7 @@
   <h2>À propos</h2>
   <div class="split">
     <div>
-      <!-- PHOTO : remplacez par <img src="assets/img/joyce.jpg" alt="Portrait de Joyce Dahudi"> -->
-      <div class="ph">Photo professionnelle<br><small class="todo">À compléter</small></div>
+      <div data-img="portrait" data-label="Photo professionnelle"></div>
     </div>
     <div>
       <p>Je suis ingénieure électrotechnicienne (formation BAC+4 en électrotechnique, ISPT-Kin), fondatrice et responsable de projet d’EMITECH, consultante en GED et data analyste industriel junior en formation. Je suis aussi formatrice dans les domaines numériques et engagée dans des initiatives de jeunesse et de développement des compétences.</p>
@@ -55,12 +53,9 @@
     </div>
   </div>
   <h3>Parcours et expériences</h3>
-  <ul class="rows">
-    <li><b>Collège Yves Marcel<br><small>Février à avril 2026</small></b><span>Stage pédagogique : expérience dans l’environnement éducatif, activités d’enseignement et de transmission des connaissances.</span></li>
-    <li><b>SNEL<br><small>Avril à juin 2025</small></b><span>Stage en environnement électrique : observation et participation aux activités liées aux pannes, découverte des cabines, postes et sous-stations, familiarisation avec la maintenance et l’exploitation des installations.</span></li>
-    <li><b>INPP<br><small>Février à mars 2024</small></b><span>Stage technique : dépannage dans les salles et installations, alimentation de moteurs asynchrones triphasés, étude et pratique du démarrage étoile-triangle.</span></li>
-    <li><b>Autres expériences</b><span>Assistante technique (appui administratif, préparation de propositions, suivi d’activités) ; bénévolat U-Report / UNICEF ; communication et promotion événementielle.</span></li>
-  </ul>
+  <ul class="rows" id="parcours"></ul>
+  <h3>Formation et certifications</h3>
+  <ul class="rows" id="certifs"></ul>
 </div></section>
 
 <!-- EXPERTISES -->
@@ -77,43 +72,17 @@
 <!-- PROJETS -->
 <section id="projets"><div class="wrap">
   <h2>Projets</h2>
-  <div class="cards">
-    <article class="card">
-      <span class="badge">Étude et simulation, sans installation industrielle</span>
-      <h3>Gestion intelligente d’une sous-station électrique via l’IoT</h3>
-      <p><b>Cadre :</b> travail de fin de cycle, « Étude et mise en œuvre d’un système de gestion intelligente d’une sous-station électrique via la technologie IoT : cas de la sous-station Masina ».</p>
-      <p><b>Problème étudié :</b> la surveillance et la supervision à distance d’une sous-station, avec détection des anomalies. <small class="todo">À préciser</small></p>
-      <p><b>Approche et technologies envisagées :</b> ESP32 et Blynk ; surveillance des paramètres électriques, de la température et de certains paramètres du transformateur ; alertes en cas d’anomalie ; historique des mesures via Google Sheets.</p>
-      <p><b>Objectifs :</b> suivre l’état de l’installation, alerter rapidement, conserver un historique exploitable.</p>
-    </article>
-    <article class="card">
-      <span class="badge">Prototype de hackathon, non commercialisé</span>
-      <h3>MAINT.AI, agent de maintenance prédictive</h3>
-      <p>Prototype développé lors d’un hackathon sur la maintenance prédictive. <small class="todo">Nom et date de l’événement à compléter</small></p>
-      <p><b>Technologies :</b> n8n, Claude (API Anthropic), Telegram, Google Sheets.</p>
-      <p><b>Objectif :</b> exploiter des données de fonctionnement de moteurs pour produire un diagnostic et aider à anticiper les anomalies.</p>
-    </article>
-    <article class="card">
-      <span class="badge">Initiative en développement</span>
-      <h3>EMITECH</h3>
-      <p>Création et développement d’une initiative entrepreneuriale axée sur les services techniques, numériques et la formation.</p>
-      <p><a class="link" href="#emitech">Voir la présentation d’EMITECH</a></p>
-    </article>
-  </div>
-  <h3>Démonstrations et galerie</h3>
-  <!-- Remplacez chaque bloc par une <video>, un <iframe> ou une <img> (voir README) -->
-  <div class="gallery">
-    <figure class="media"><span>Démo MAINT.AI<br><small class="todo">Vidéo à compléter</small></span></figure>
-    <figure class="media"><span>Démo sous-station<br><small class="todo">Vidéo à compléter</small></span></figure>
-    <div class="ph">Activités techniques<br><small class="todo">Photos à compléter</small></div>
-    <div class="ph">Activités numériques<br><small class="todo">Photos à compléter</small></div>
-  </div>
+  <div class="cards" id="projets-list"></div>
+  <h3>Démonstrations vidéo</h3>
+  <div class="gallery" id="videos-list"></div>
+  <h3>Galerie photo</h3>
+  <div class="gallery" id="photos-list"></div>
 </div></section>
 
 <!-- EMITECH -->
 <section id="emitech" class="dark"><div class="wrap">
   <div class="brand">
-    <div class="ph">Logo EMITECH<br><small class="todo">À compléter</small></div>
+    <div data-img="logoEmitech" data-label="Logo EMITECH"></div>
     <div>
       <h2>EMITECH</h2>
       <p class="lead">Engineers Mindset Technology. « Le développement au service de la jeunesse ». <i>Think. Build. Lead.</i></p>
@@ -127,7 +96,7 @@
   </div>
   <p>EMITECH souhaite contribuer à former des personnes compétentes, autonomes et épanouies, autour de sept principes :</p>
   <ul class="chips"><li>Savoir-faire</li><li>Savoir-être</li><li>Savoir-vivre</li><li>Discipline</li><li>Responsabilité</li><li>Constance</li><li>Leadership</li></ul>
-  <figure class="media"><span>Présentation vidéo d’EMITECH<br><small class="todo">À compléter</small></span></figure>
+  <div data-v="emitech"></div>
   <p><a class="btn yellow" href="#contact">Discuter d’une collaboration</a></p>
 </div></section>
 
@@ -135,18 +104,8 @@
 <section id="engagement"><div class="wrap">
   <h2>Engagement</h2>
   <div class="split">
-    <ul class="plain">
-      <li>Bénévolat et engagement citoyen avec U-Report / UNICEF</li>
-      <li>Participation aux initiatives de jeunesse</li>
-      <li>Transmission des connaissances</li>
-      <li>Développement personnel et leadership</li>
-      <li>Promotion des compétences féminines dans les domaines techniques</li>
-    </ul>
-    <div>
-      <h3>Distinctions</h3>
-      <ul class="plain"><li>1re place en littérature</li><li>3e place au pitch de projet</li><li>Concours Minzoto Star 2025</li></ul>
-      <small class="todo">Contexte et dates à compléter</small>
-    </div>
+    <ol class="timeline" id="chrono"></ol>
+    <div><h3>Distinctions</h3><ul class="plain" id="distinctions"></ul></div>
   </div>
 </div></section>
 
@@ -155,8 +114,7 @@
   <h2>Contact</h2>
   <p>Collaboration, prestation, opportunité ou partenariat : écrivez-moi.</p>
   <div class="split">
-    <!-- Remplacez VOTRE_ID par l’identifiant Formspree (voir README) -->
-    <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+    <form id="cform" action="#" method="POST">
       <label>Nom<input name="name" required autocomplete="name"></label>
       <label>E-mail<input type="email" name="email" required autocomplete="email"></label>
       <label>Motif
@@ -167,20 +125,18 @@
       <button class="btn" type="submit">Envoyer le message</button>
     </form>
     <div>
-      <p><a class="btn yellow" href="https://wa.me/CODEPAYS_NUMERO">Me contacter sur WhatsApp</a></p>
-      <ul class="plain">
-        <li>E-mail : <span class="todo">À compléter</span></li>
-        <li>LinkedIn : <a href="#" class="todo">À compléter</a></li>
-        <li>Facebook : <a href="#" class="todo">À compléter</a></li>
-        <li>Instagram : <a href="#" class="todo">À compléter</a></li>
-        <li>TikTok / YouTube : <a href="#" class="todo">À compléter</a></li>
-      </ul>
+      <p><a class="btn yellow" id="wa" href="#contact">Me contacter sur WhatsApp</a></p>
+      <ul class="plain socials" id="socials"></ul>
     </div>
   </div>
 </div></section>
 </main>
 
 <footer><div class="wrap"><span>© <span id="yr">2026</span> Joyce Dahudi</span><span>EMITECH – Think. Build. Lead.</span></div></footer>
+<button id="top" aria-label="Retour en haut">↑</button>
+<dialog id="box" aria-label="Agrandissement"></dialog>
+<script src="content.js"></script>
+<script src="render.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
